@@ -26,12 +26,19 @@ SECRET_KEY = "django-insecure-0j)5-@bzw5(5h#_p-5hg8jn5ia+$&iqq))&%__2@5$hw^q6oyv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
-# Add codespace Django REST API endpoint suffix
+# Add localhost and default dev hosts
+ALLOWED_HOSTS += ["127.0.0.1", "localhost"]
+
+# Add Codespaces dynamic preview URL
 if 'CODESPACE_NAME' in os.environ:
     CODESPACE_NAME = os.environ['CODESPACE_NAME']
     ALLOWED_HOSTS.append(f"{CODESPACE_NAME}-8000.preview.app.github.dev")
+
+# Allow wildcard only for non-production (if needed)
+if DEBUG:
+    ALLOWED_HOSTS.append("*")
 
 
 # Application definition

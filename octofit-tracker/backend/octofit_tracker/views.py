@@ -10,12 +10,6 @@ from .models import User, Team, Activity, Leaderboard, Workout
 def api_root(request, format=None):
     # Dynamically determine the base URL
     base_url = request.build_absolute_uri('/')
-    if 'CODESPACE_NAME' in os.environ:
-        codespace_name = os.environ['CODESPACE_NAME']
-        base_url = f"https://{codespace_name}-8000.preview.app.github.dev/"
-    else:
-        base_url = 'http://127.0.0.1:8000/'
-
     return Response({
         'users': base_url + 'api/users/',
         'teams': base_url + 'api/teams/',

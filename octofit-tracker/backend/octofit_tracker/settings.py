@@ -26,10 +26,9 @@ SECRET_KEY = "django-insecure-0j)5-@bzw5(5h#_p-5hg8jn5ia+$&iqq))&%__2@5$hw^q6oyv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 # Add localhost and default dev hosts
-ALLOWED_HOSTS += ["127.0.0.1", "localhost", "jubilant-broccoli-4wwgr6r55g537574.github.dev"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "jubilant-broccoli-4wwgr6r55g537574-8000.app.github.dev"]
 
 
 # Application definition

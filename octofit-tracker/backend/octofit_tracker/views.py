@@ -1,12 +1,19 @@
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.conf import settings
 from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
 from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    base_url = 'http://127.0.0.1:8000/'
+    # Dynamically determine the base URL
+    base_url = request.build_absolute_uri('/')
+    if 'REPLACE-THIS-WITH-YOUR-CODESPACE-NAME' in base_url:
+        base_url = 'https://[REPLACE-THIS-WITH-YOUR-CODESPACE-NAME]-8000.app.github.dev/'
+    else:
+        base_url = 'http://127.0.0.1:8000/'
+
     return Response({
         'users': base_url + 'api/users/',
         'teams': base_url + 'api/teams/',

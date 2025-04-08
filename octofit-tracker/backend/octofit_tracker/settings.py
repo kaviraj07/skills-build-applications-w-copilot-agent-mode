@@ -29,16 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Add localhost and default dev hosts
-ALLOWED_HOSTS += ["127.0.0.1", "localhost"]
-
-# Add Codespaces dynamic preview URL
-if 'CODESPACE_NAME' in os.environ:
-    CODESPACE_NAME = os.environ['CODESPACE_NAME']
-    ALLOWED_HOSTS.append(f"{CODESPACE_NAME}-8000.preview.app.github.dev")
-
-# Allow wildcard only for non-production (if needed)
-if DEBUG:
-    ALLOWED_HOSTS.append("*")
+ALLOWED_HOSTS += ["127.0.0.1", "localhost", "jubilant-broccoli-4wwgr6r55g537574.github.dev"]
 
 
 # Application definition

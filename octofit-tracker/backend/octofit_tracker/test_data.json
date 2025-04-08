@@ -1,22 +1,21 @@
 {
     "users": [
-        {"username": "john_doe", "email": "john@example.com", "password": "password123"},
-        {"username": "jane_doe", "email": "jane@example.com", "password": "password123"}
+        {"name": "John Doe", "email": "john.doe@example.com"},
+        {"name": "Jane Smith", "email": "jane.smith@example.com"}
     ],
     "teams": [
-        {"name": "Team Alpha", "members": ["john_doe", "jane_doe"]},
-        {"name": "Team Beta", "members": []}
+        {"name": "Team Alpha", "members": ["John Doe", "Jane Smith"]}
     ],
     "activities": [
-        {"name": "Running", "calories_burned_per_hour": 600},
-        {"name": "Cycling", "calories_burned_per_hour": 500}
+        {"type": "Running", "duration": 30},
+        {"type": "Cycling", "duration": 45}
     ],
     "leaderboard": [
-        {"username": "john_doe", "points": 150},
-        {"username": "jane_doe", "points": 120}
+        {"user": "John Doe", "score": 100},
+        {"user": "Jane Smith", "score": 90}
     ],
     "workouts": [
-        {"username": "john_doe", "activity": "Running", "duration_minutes": 30},
-        {"username": "jane_doe", "activity": "Cycling", "duration_minutes": 45}
+        {"name": "Morning Run", "calories_burned": 300},
+        {"name": "Evening Cycle", "calories_burned": 450}
     ]
 }

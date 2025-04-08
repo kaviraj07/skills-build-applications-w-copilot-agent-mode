@@ -9,7 +9,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Load test data from JSON file
-        test_data_path = Path(__file__).resolve().parent.parent.parent / 'test_data.json'
+        test_data_path = Path(__file__).resolve().parent.parent.parent[3] / 'test_data.json'
         with open(test_data_path, 'r') as file:
             test_data = json.load(file)
 

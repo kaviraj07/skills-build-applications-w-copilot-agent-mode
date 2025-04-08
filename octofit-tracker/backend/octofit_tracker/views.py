@@ -10,7 +10,7 @@ def api_root(request, format=None):
     # Dynamically determine the base URL
     base_url = request.build_absolute_uri('/')
     if 'REPLACE-THIS-WITH-YOUR-CODESPACE-NAME' in base_url:
-        base_url = 'https://[REPLACE-THIS-WITH-YOUR-CODESPACE-NAME]-8000.app.github.dev/'
+        base_url = 'https://jubilant-broccoli-4wwgr6r55g537574-8000.app.github.dev/'
     else:
         base_url = 'http://127.0.0.1:8000/'
 

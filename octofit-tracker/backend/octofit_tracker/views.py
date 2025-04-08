@@ -2,24 +2,26 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.conf import settings
+import os
 from .serializers import UserSerializer, TeamSerializer, ActivitySerializer, LeaderboardSerializer, WorkoutSerializer
 from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(['GET'])
 def api_root(request, format=None):
-    # # Dynamically determine the base URL
-    # base_url = request.build_absolute_uri('/')
-    # if 'REPLACE-THIS-WITH-YOUR-CODESPACE-NAME' in base_url:
-    #     base_url = 'https://jubilant-broccoli-4wwgr6r55g537574-8000.app.github.dev/'
-    # else:
-    #     base_url = 'http://127.0.0.1:8000/'
+    # Dynamically determine the base URL
+    base_url = request.build_absolute_uri('/')
+    if 'CODESPACE_NAME' in os.environ:
+        codespace_name = os.environ['CODESPACE_NAME']
+        base_url = f"https://{codespace_name}-8000.preview.app.github.dev/"
+    else:
+        base_url = 'http://127.0.0.1:8000/'
 
     return Response({
-        'users':request.build_absolute_uri('api/users/'),
-        'teams':request.build_absolute_uri('api/teams/'),
-        'activities':request.build_absolute_uri('api/activities/'),
-        'leaderboard':request.build_absolute_uri('api/leaderboard/'),
-        'workouts':request.build_absolute_uri('api/workouts/')
+        'users': base_url + 'api/users/',
+        'teams': base_url + 'api/teams/',
+        'activities': base_url + 'api/activities/',
+        'leaderboard': base_url + 'api/leaderboard/',
+        'workouts': base_url + 'api/workouts/'
     })
 
 class UserViewSet(viewsets.ModelViewSet):
